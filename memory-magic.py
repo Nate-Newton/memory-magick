@@ -387,6 +387,7 @@ config.read('config.ini')
 
 
 #menu 
+clear_screen()
 print("""
   __  __                                          __  __                _        _    
  |  \\/  |                                        |  \\/  |              (_)      | |   
