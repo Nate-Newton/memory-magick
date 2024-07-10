@@ -163,7 +163,7 @@ def quiz(table, data, correct_questions, how_many_questions, mode, htz):
                     potential_answers.remove(value)
                     
         elif mode == "random":
-            #prepares list of incorrect answers for the other potenial options in the quiz buy seperating out just the keys, removing the ones which are correct, randomly sorting them, leaving the extras for late
+            #prepares list of incorrect answers for the other potenial options in the quiz buy seperating out just the keys, removing the ones which are correct, randomly sorting them, leaving the extras for later
             #creates a copy of the potential list for iterations, and then removes all which would equal none
             potential_answers = list(data.values())
             potential_answers_copy = potential_answers.copy()
@@ -352,6 +352,7 @@ def learning_mode_teach_user(correct_questions, table, skip_learning):
 
     return
 
+# clears the screen depending on the OS, and then replaces the logo so that it is persistant
 def clear_screen():
     if os.name == 'posix':
         os.system('clear')
@@ -366,7 +367,7 @@ def clear_screen():
  |_|  |_| \\___||_| |_| |_| \\___/ |_|    \\__, |   |_|  |_| \\__,_| \\__, ||_| \\___||_|\\_\\
                                          __/ |                    __/ |               
                                         |___/                    |___/                
-                                                        Created by The White Wood Podcast
+                                                        made by Actual Wizards!!!
  """)
  
 #premenu setup 
@@ -395,7 +396,7 @@ print("""
  |_|  |_| \\___||_| |_| |_| \\___/ |_|    \\__, |   |_|  |_| \\__,_| \\__, ||_| \\___||_|\\_\\
                                          __/ |                    __/ |               
                                         |___/                    |___/                
-                                                        Made by Actual Wizards!!!
+                                                        made by Actual Wizards!!!
  """)
 while True:
     menu_input = input("------------------------------------------- \n      Main Menu\n------------------------------------------- \nPlease select a mode\n   1. Random Mode \n   2. Learning Mode \n   3. Settings \n   Q. Quit\n")
@@ -409,7 +410,7 @@ while True:
             htz = config.getboolean('CURRENT', 'htz_switch')
             quiz(table, data, correct_questions, how_many_questions, mode, htz)
             print(" ------------------------------------------ \n")    
-            #Takes the input and makes sure it is valid, then takes it and either retrys, creates new quiz, or takes you back to the menu
+            #Takes the input and makes sure it is valid, then takes it and either retries, creates new quiz, or takes you back to the menu
             stop_playing_random_valid = False
             while stop_playing_random_valid == False:
                 stop_playing_input = input("Would you like to keep playing?\n\n1. Retry same questions  \n2. New Random Mode Quiz \n3. Main Menu  \nQ. Quit\n")
@@ -559,14 +560,6 @@ while True:
                         else:
                             thoth_switch_input = input("Sorry, '" + thoth_switch_input + "' is not a valid input. Please select 1, 2, or 3\n")                            
                 elif settings_menu_input == '3':
-#                    current_options = config.options('CURRENT')
-#                    for item in current_options:
-#                        config.set('CURRENT', item, config.get('DEFAULT', item))
-
-#                    with open('config.ini', 'w') as configfile:
-
-#                        config.write(configfile)
-#                    clear_screen()
 
                     clear_screen()
                     default_settings_input = input("\n------------------------------------------- \nThis setting will return all settings back to the default. Would you like to continue?\n\n   1. Yes - Return all settings to Default\n   2. No - Keep my current settings\n")            
